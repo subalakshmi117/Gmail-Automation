@@ -1,0 +1,86 @@
+{
+  "name": "email automation",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "b7126aa0-cfb6-483a-9e17-3ce686a1d530",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "sendTo": "suve5621@gmail.com",
+        "subject": "welcome",
+        "message": "hello suve",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "f5f91a6c-e6fe-4e1d-bb02-18a13412a7d1",
+      "name": "Send a message",
+      "webhookId": "ac080c34-5890-4bd5-b76c-0bcdb0423b75",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "wbSPFlz83iAjfTk3",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 3,
+              "triggerAtMinute": 5
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        448,
+        0
+      ],
+      "id": "be9cb6f9-c2d5-4c5a-80d9-89a76c6bf2b9",
+      "name": "Schedule Trigger"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "7d717927-ea01-44a1-ba3f-2d62b24499b2",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "5bc306f1551e83f801946d1adca77c5806696f08e8db667a42138f5651f5b797"
+  },
+  "nodeGroups": [],
+  "id": "9HSIlbOFeQoWr6qY",
+  "tags": []
+}
